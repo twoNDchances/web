@@ -1,0 +1,25 @@
+{% extends 'content_page.html' %}
+
+{% block head %}
+    <title>
+        Login
+    </title>
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.username.label }}
+        {{ form.username }}
+        <br>
+        {{ form.password.label }}
+        {{ form.password }}
+        <br>
+        {{ form.submit_button }}
+    </form>
+    {% for message in get_flashed_messages() %}
+        <p>
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endblock %}

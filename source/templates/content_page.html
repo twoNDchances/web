@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+        <h1>
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ url_for('server.home._main_root_page_') }}">Home</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('server.logout._logout_page_') }}">Logout</a>
+                    </td>
+                </tr>
+            </table>
+        </h1>
+    {% else %}
+        <h1>
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ url_for('server.home._main_root_page_') }}">Home</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('server.login._login_page_') }}">Login</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('functions.create_user._register_page_') }}">Register</a>
+                    </td>
+                </tr>
+            </table>
+        </h1>
+    {% endif %}
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
