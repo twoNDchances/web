@@ -6,5 +6,5 @@ logout = Blueprint(name='logout', import_name=__name__)
 
 @logout.route('/logout')
 @login_required
-def _logout_page_():
+def logout_page_():
     return logout_page()

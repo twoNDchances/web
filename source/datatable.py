@@ -13,7 +13,7 @@ class User(database.Model, UserMixin):
     __tablename__ = 'users'
 
     id = database.Column(database.Integer, primary_key=True)
-    username = database.Column(database.String(16))
+    username = database.Column(database.String(16), unique=True, index=True)
     password = database.Column(database.String(512))
 
     def __init__(self, username, password):

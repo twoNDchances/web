@@ -9,7 +9,7 @@ application = Flask(__name__)
 application.config['SECRET_KEY'] = str(token_hex(1024))
 
 
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + path.join(path.abspath(path=path.dirname(__name__)), 'data.sql')
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + path.join(path.abspath(path=path.dirname(__file__)), 'data.sql')
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 database = SQLAlchemy(app=application)
 Migrate(app=application, db=database)
@@ -17,7 +17,7 @@ Migrate(app=application, db=database)
 
 login_manager = LoginManager()
 login_manager.init_app(app=application)
-login_manager.login_view = 'server.login'
+login_manager.login_view = 'server.login.login_page_'
 
 from source.controllers.server import server
 from source.controllers.functions import functions
